@@ -1,4 +1,6 @@
-﻿@{
+﻿@model CrearMiPizza.Models.PizzaModel
+
+@{
     ViewBag.Title = "Crear mi pizza";
 }
 
@@ -24,7 +26,7 @@
 
     <div class="wrap">
         <ul class="tabs">
-            <li><a href="#tab2"><span class="fas fa-ruler"></span><span class="tab-text"> Tamaño </span></a></li>
+            <li><a href="#tab1"><span class="fas fa-ruler"></span><span class="tab-text"> Tamaño </span></a></li>
             <li><a href="#tab2"><span class="fas fa-bread-slice"></span><span class="tab-text"> Masa y salsa </span></a></li>
             <li><a href="#tab3"><span class="fas fa-pizza-slice"></span><span class="tab-text"> Ingredientes </span></a></li>
             <li><a href="#tab4"><span class="fas fa-paper-plane"></span><span class="tab-text"> Info de envío </span></a></li>
@@ -35,15 +37,25 @@
             @using (Html.BeginForm("EnviaDatosCreacion", "Pizza", FormMethod.Post, new { @id = "formPreg", enctype = "multipart/form-data" }))
             {
                 <article id="tab1">
+
+                    <hr />
+                    <h3>Elige el tamaño de la pizza</h3>
+                    <hr />
+
                     <div class="row">
-                        <div class="col-md-4">
-                            <p>Elemento 1</p>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.RadioButtonFor(model => model.Tamanios, "Personal (4 slides)", new { @checked = "true" }) <spam class="tamanios-letras-rb">Personal (4 slides) </spam> <hr />
+                                @Html.RadioButtonFor(model => model.Tamanios, "Mediana (8 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
+                                @Html.RadioButtonFor(model => model.Tamanios, "Grande (16 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
+                        
+                                    <a href="#tab2" class="btn btn-info"> Siguiente </a>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <p>Elemento 2</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>Elemento 3</p>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <img src="~/Content/img/pizzatamanios.jpg" width="300" height="300"/>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -51,46 +63,61 @@
                 <article id="tab2">
                     <div class="row">
                         <div class="col-md-4">
-                            <p>Elemento 1</p>
+                            <h4>Seleccione la masa de su preferencia</h4>
+                            <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "Original", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Original </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "Orilla con queso", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Orilla con queso </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "Sartén", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Sartén </spam> <hr />
                         </div>
                         <div class="col-md-4">
-                            <p>Elemento 2</p>
+                            <h4>Seleccione la salsa de su preferencia</h4>
+                            <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa de la casa", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa de la casa </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa tomate artesanal", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa tomate artesanal </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa barbacoa", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa barbacoa </spam> <hr />
                         </div>
                         <div class="col-md-4">
-                            <p>Elemento 3</p>
+                            <hr />
+                            <img src="~/Content/img/salsamasa.jpg" width="300" height="200" />
+                            <hr />
                         </div>
                     </div>
                 </article>
 
                 <article id="tab3">
+
+                    <hr />
+                    <h3>Elige los ingredientes de la pizza</h3>
+                    <hr />
+
                     <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <img src="~/Content/img/ingresientes1.jpg" width="330" height="200" /> <hr />
-                                    <input name="IngredientesId" type="checkbox" value="1" /> Jamón <br />
-                                    <input name="IngredientesId" type="checkbox" value="2" /> Hongos <br />
-                                    <input name="IngredientesId" type="checkbox" value="4" /> Salami <br />
-                                    <input name="IngredientesId" type="checkbox" value="3" /> Peperoni <br />
-                                </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <img src="~/Content/img/ingresientes1.jpg" width="330" height="200" /> <hr />
+                                <input name="IngredientesId" type="checkbox" value="1" /> Jamón <br />
+                                <input name="IngredientesId" type="checkbox" value="2" /> Hongos <br />
+                                <input name="IngredientesId" type="checkbox" value="4" /> Salami <br />
+                                <input name="IngredientesId" type="checkbox" value="3" /> Peperoni <br />
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <img src="~/Content/img/ingresientes2.jpg" width="330" height="200" /> <hr />
-                                    <input name="IngredientesId" type="checkbox" value="5" /> Pollo <br />
-                                    <input name="IngredientesId" type="checkbox" value="6" /> Carne molida <br />
-                                    <input name="IngredientesId" type="checkbox" value="7" /> Chorizo <br />
-                                    <input name="IngredientesId" type="checkbox" value="8" /> Tosino <br />
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <img src="~/Content/img/ingresientes2.jpg" width="330" height="200" /> <hr />
+                                <input name="IngredientesId" type="checkbox" value="5" /> Pollo <br />
+                                <input name="IngredientesId" type="checkbox" value="6" /> Carne molida <br />
+                                <input name="IngredientesId" type="checkbox" value="7" /> Chorizo <br />
+                                <input name="IngredientesId" type="checkbox" value="8" /> Tosino <br />
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <img src="~/Content/img/ingresientes3.jpg" width="330" height="200" /> <hr />
-                                    <input name="IngredientesId" type="checkbox" value="9" /> Queso parmesano <br />
-                                    <input name="IngredientesId" type="checkbox" value="10" /> Queso cheddar <br />
-                                    <input name="IngredientesId" type="checkbox" value="11" /> Cebolla <br />
-                                    <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños <br />
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <img src="~/Content/img/ingresientes3.jpg" width="330" height="200" /> <hr />
+                                <input name="IngredientesId" type="checkbox" value="9" /> Queso parmesano <br />
+                                <input name="IngredientesId" type="checkbox" value="10" /> Queso cheddar <br />
+                                <input name="IngredientesId" type="checkbox" value="11" /> Cebolla <br />
+                                <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños <br />
                             </div>
+                        </div>
                     </div>
                 </article>
 
