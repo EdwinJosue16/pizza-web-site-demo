@@ -25,8 +25,13 @@
     width: 99%;
 }
 
+#div-footer {
+    width: 101%;
+}
+
 #mi-footer {
     background-color: #292b2c;
+    width: 100%;
     color: azure;
 }
 /* Set width on the form input elements since they're 100% wide by default */
