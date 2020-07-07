@@ -38,18 +38,18 @@
             {
                 <article id="tab1">
 
-                    <hr />
-                    <h3>Elige el tamaño de la pizza</h3>
-                    <hr />
-
                     <div class="row">
                         <div class="col-md-6">
+                            <hr />
+                            <h3>Elige el tamaño de la pizza</h3>
+                            <hr />
+
                             <div class="form-group">
                                 @Html.RadioButtonFor(model => model.Tamanios, "Personal (4 slides)", new { @checked = "true" }) <spam class="tamanios-letras-rb">Personal (4 slides) </spam> <hr />
                                 @Html.RadioButtonFor(model => model.Tamanios, "Mediana (8 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
                                 @Html.RadioButtonFor(model => model.Tamanios, "Grande (16 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
-                        
-                                    <a href="#tab2" class="btn btn-info"> Siguiente </a>
+
+                                <a href="#tab2" class="btn btn-info"> Siguiente </a>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -123,15 +123,27 @@
 
                 <article id="tab4">
                     <div class="row">
-                        <div class="col-md-4">
-                            <p>Elemento 1</p>
-                        </div>
-                        <div class="col-md-4">
-                            <p>Elemento 2</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <input type="submit" value="Terminar mi pedido" class="btn btn-success" />
+                        <div class="form-group">
+
+                            <div class="center">
+                                @Html.LabelFor(model => model.NombreDuenioPizza)
+                                @Html.TextBoxFor(model => model.NombreDuenioPizza, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NombreDuenioPizza, "", new { @class = "text-danger" })
+
+                                <hr />
+
+                                @Html.LabelFor(model => model.TelefonoEntrega)
+                                @Html.TextBoxFor(model => model.TelefonoEntrega, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TelefonoEntrega, "", new { @class = "text-danger" })
+
+                                <hr />
+
+                                @Html.LabelFor(model => model.DireccionEntrega)
+                                @Html.TextBoxFor(model => model.DireccionEntrega, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DireccionEntrega, "", new { @class = "text-danger" })
+
+                                <hr />
+                                <input type="submit" value="Confirmar mi pedido" class="btn btn-success" />
                             </div>
                         </div>
                     </div>
