@@ -32,76 +32,84 @@
         </ul>
 
         <div class="secciones">
+            @using (Html.BeginForm("EnviaDatosCreacion", "Pizza", FormMethod.Post, new { @id = "formPreg", enctype = "multipart/form-data" }))
+            {
+                <article id="tab1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Elemento 1</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Elemento 2</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Elemento 3</p>
+                        </div>
+                    </div>
+                </article>
 
-            <article id="tab1">
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>Elemento 1</p>
+                <article id="tab2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Elemento 1</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Elemento 2</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Elemento 3</p>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <p>Elemento 2</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Elemento 3</p>
-                    </div>
-                </div>
-            </article>
+                </article>
 
-            <article id="tab2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>Elemento 1</p>
+                <article id="tab3">
+                    <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <img src="~/Content/img/ingresientes1.jpg" width="330" height="200" /> <hr />
+                                    <input name="IngredientesId" type="checkbox" value="1" /> Jamón <br />
+                                    <input name="IngredientesId" type="checkbox" value="2" /> Hongos <br />
+                                    <input name="IngredientesId" type="checkbox" value="4" /> Salami <br />
+                                    <input name="IngredientesId" type="checkbox" value="3" /> Peperoni <br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <img src="~/Content/img/ingresientes2.jpg" width="330" height="200" /> <hr />
+                                    <input name="IngredientesId" type="checkbox" value="5" /> Pollo <br />
+                                    <input name="IngredientesId" type="checkbox" value="6" /> Carne molida <br />
+                                    <input name="IngredientesId" type="checkbox" value="7" /> Chorizo <br />
+                                    <input name="IngredientesId" type="checkbox" value="8" /> Tosino <br />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <img src="~/Content/img/ingresientes3.jpg" width="330" height="200" /> <hr />
+                                    <input name="IngredientesId" type="checkbox" value="9" /> Queso parmesano <br />
+                                    <input name="IngredientesId" type="checkbox" value="10" /> Queso cheddar <br />
+                                    <input name="IngredientesId" type="checkbox" value="11" /> Cebolla <br />
+                                    <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños <br />
+                                </div>
+                            </div>
                     </div>
-                    <div class="col-md-4">
-                        <p>Elemento 2</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Elemento 3</p>
-                    </div>
-                </div>
-            </article>
+                </article>
 
-            <article id="tab3">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="~/Content/img/ingresientes1.jpg" width="330" height="200" /> <hr />
-                        <input name="AreChecked" type="checkbox" value="1" /> Jamón <br />
-                        <input name="AreChecked" type="checkbox" value="2" /> Hongos <br />
-                        <input name="AreChecked" type="checkbox" value="3" /> Peperoni <br />
-                        <input name="AreChecked" type="checkbox" value="4" /> Salami <br />
+                <article id="tab4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Elemento 1</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Elemento 2</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="submit" value="Terminar mi pedido" class="btn btn-success" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-
-                        <img src="~/Content/img/ingresientes2.jpg" width="330" height="200"/> <hr />
-
-                        <input name="AreChecked" type="checkbox" value="5" /> Pollo <br />
-                        <input name="AreChecked" type="checkbox" value="6" /> Carne molida <br />
-                        <input name="AreChecked" type="checkbox" value="7" /> Chorizo <br />
-                        <input name="AreChecked" type="checkbox" value="8" /> Tosino <br />
-                    </div>
-                    <div class="col-md-4">
-                        <img src="~/Content/img/ingresientes3.jpg" width="330" height="200" /> <hr />
-                        <input name="AreChecked" type="checkbox" value="9" /> Queso parmesano <br />
-                        <input name="AreChecked" type="checkbox" value="10" /> Queso cheddar <br />
-                        <input name="AreChecked" type="checkbox" value="11" /> Cebolla <br />
-                        <input name="AreChecked" type="checkbox" value="12" /> Jalapeños <br />
-                    </div>
-                </div>
-            </article>
-
-            <article id="tab4">
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>Elemento 1</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Elemento 2</p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>Elemento 3</p>
-                    </div>
-                </div>
-            </article>
+                </article>
+            }
         </div>
     </div>
 </body>

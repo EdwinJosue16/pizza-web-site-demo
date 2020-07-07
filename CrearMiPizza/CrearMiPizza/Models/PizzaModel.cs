@@ -7,5 +7,6 @@ namespace CrearMiPizza.Models
 {
     public class PizzaModel
     {
+        public int[] IngredientesId { get; set; }
     }
 }
