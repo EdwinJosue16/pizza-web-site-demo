@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Comfortaa', cursive;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,9 +17,22 @@
     white-space: normal;
 }
 
+#body-inicio {
+    background-image: url(img/pizzaback.png);
+}
+
+#img-inicio {
+    width: 99%;
+}
+
+#mi-footer {
+    background-color: #292b2c;
+    color: azure;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
+

@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
     <title>@ViewBag.Title - Pizza personalizada</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -23,13 +25,34 @@
     </nav>
 
 
-        <div class="container body-content" id="mi_footer">
-            @RenderBody()
-            <hr />
-            <footer>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="page-footer font-small unique-color-dark pt-4" id="mi-footer">
+
+            <!-- Footer Elements -->
+            <div class="container">
+
+                <!-- Call to action -->
+                <ul class="list-unstyled list-inline text-center py-2">
+                    <li class="list-inline-item">
+                        <p> ¡La mejor pizza personalizada hasta su casa! </p>
+                        @*<img src="~/Content/img/pizzaimag.png" />*@
+                    </li>
+
+                </ul>
+                <!-- Call to action -->
+
+            </div>
+            <!-- Footer Elements -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
                 <p>&copy; @DateTime.Now.Year - Pizza personalizada</p>
-            </footer>
-        </div>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
 
 
 </body>
