@@ -1,21 +1,102 @@
-﻿<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+﻿@{
+    ViewBag.Title = "Crear mi pizza";
+}
+
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="~/Content/estilos.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+
+</head>
+
+<body class="body-content" onload="javascript:cambiarPestanna(pestanas,pestana1);">
+
+    <hr />
+    <h2> <strong> Elija los elementos favoritos para su pizza</strong></h2>
+    <hr />
+
+    <div class="wrap">
+        <ul class="tabs">
+            <li><a href="#tab2"><span class="fas fa-ruler"></span><span class="tab-text"> Tamaño </span></a></li>
+            <li><a href="#tab2"><span class="fas fa-bread-slice"></span><span class="tab-text"> Masa y salsa </span></a></li>
+            <li><a href="#tab3"><span class="fas fa-pizza-slice"></span><span class="tab-text"> Ingredientes </span></a></li>
+            <li><a href="#tab4"><span class="fas fa-paper-plane"></span><span class="tab-text"> Info de envío </span></a></li>
+
+        </ul>
+
+        <div class="secciones">
+
+            <article id="tab1">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Elemento 1</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 2</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 3</p>
+                    </div>
+                </div>
+            </article>
+
+            <article id="tab2">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Elemento 1</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 2</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 3</p>
+                    </div>
+                </div>
+            </article>
+
+            <article id="tab3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Elemento 1</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 2</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 3</p>
+                    </div>
+                </div>
+            </article>
+
+            <article id="tab4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Elemento 1</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 2</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Elemento 3</p>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+</html>
+
+
+
