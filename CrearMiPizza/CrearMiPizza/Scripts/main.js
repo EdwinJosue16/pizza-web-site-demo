@@ -51,3 +51,11 @@ $(document).ready(function(){
 
 
 });
+
+
+function toggle(source) {
+    checkboxes = document.getElementsByClassName('misCheckBox');
+    for (var i = 0; i < checkboxes.length; ++i) {
+        checkboxes[i].checked = source.checked;
+    }
+}
