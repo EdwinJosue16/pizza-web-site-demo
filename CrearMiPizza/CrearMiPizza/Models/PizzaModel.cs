@@ -9,7 +9,7 @@ namespace CrearMiPizza.Models
         public int TipoSalsa { get; set; }
         public int TipoMasa { get; set; }
 
-        [StringLength(20, MinimumLength = 1, ErrorMessage = "El nombre de la ciudad no puede superar los 20 caracteres")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "El nombre de la ciudad no puede superar los 30 caracteres")]
         [Required(ErrorMessage = "Es necesario que indique la ciudad de entrega")]
         [Display(Name = "Ingrese la ciudad de entrega")]
         public string CiudadEntrega { get; set; }
@@ -19,6 +19,7 @@ namespace CrearMiPizza.Models
         [Display(Name = "Ingrese la dirección de entrega")]
         public string DireccionEntrega { get; set; }
 
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "El nombre completo no puede superar los 30 caracteres")]
         [Required(ErrorMessage = "Es necesario que indique su nombre")]
         [Display(Name ="Ingrese su nombre completo")]
         public string NombreDuenioPizza { get; set;}
