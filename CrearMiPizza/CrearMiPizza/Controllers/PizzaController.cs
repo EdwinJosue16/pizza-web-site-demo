@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using CrearMiPizza.Models;
+using CrearMiPizza.Servicios;
 
 namespace CrearMiPizza.Controllers
 {
@@ -18,7 +19,9 @@ namespace CrearMiPizza.Controllers
         public ActionResult GenerarInformePedido(PizzaModel pizza) {
             if (pizza != null && ModelState.IsValid)
             {
+                CalculadoraPrecios calculadora = new CalculadoraPrecios(pizza);
                 ViewBag.detallesIngredientes = new DetallesIngredientesModel();
+                ViewBag.precioFinalPizza = calculadora.CalcularPrecioTotalPizza();
                 return View(pizza);
             }
             else {
