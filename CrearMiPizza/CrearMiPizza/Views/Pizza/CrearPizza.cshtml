@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="body-content" onload="javascript:cambiarPestanna(pestanas,pestana1);">
+<body class="body-content" >
 
     <hr />
     <h2> <strong> Elija los elementos favoritos para su pizza</strong></h2>
@@ -29,7 +29,7 @@
             <li><a href="#tab1"><span class="fas fa-ruler"></span><span class="tab-text"> Tamaño </span></a></li>
             <li><a href="#tab2"><span class="fas fa-bread-slice"></span><span class="tab-text"> Masa y salsa </span></a></li>
             <li><a href="#tab3"><span class="fas fa-pizza-slice"></span><span class="tab-text"> Ingredientes </span></a></li>
-            <li><a href="#tab4"><span class="fas fa-paper-plane"></span><span class="tab-text"> Info de envío </span></a></li>
+            <li><a href="#tab4"><span class="fas fa-paper-plane"></span><span class="tab-text"> Datos de envío </span></a></li>
 
         </ul>
 
@@ -49,12 +49,12 @@
                                 @Html.RadioButtonFor(model => model.Tamanios, "Mediana (8 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
                                 @Html.RadioButtonFor(model => model.Tamanios, "Grande (16 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
 
-                                <a href="#tab2" class="btn btn-info"> Siguiente </a>
+                                <a href="#tab2" class="btn btn-primary btn-lg" id="pasarTab1-Tab2"> Siguiente </a>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <img src="~/Content/img/pizzatamanios.jpg" width="300" height="300"/>
+                            <div id="center">
+                                <img src="~/Content/img/pizzatamanios.jpg" width="280" height="280" />
                             </div>
                         </div>
                     </div>
@@ -80,6 +80,7 @@
                             <hr />
                             <img src="~/Content/img/salsamasa.jpg" width="300" height="200" />
                             <hr />
+                            <a href="#tab3" class="btn btn-primary btn-lg" id="pasarTab2-Tab3"> Siguiente </a>
                         </div>
                     </div>
                 </article>
@@ -115,17 +116,20 @@
                                 <input name="IngredientesId" type="checkbox" value="9" /> Queso parmesano <br />
                                 <input name="IngredientesId" type="checkbox" value="10" /> Queso cheddar <br />
                                 <input name="IngredientesId" type="checkbox" value="11" /> Cebolla <br />
-                                <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños <br />
+                                <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños
+                                <hr />
+                                <a href="#tab4" class="btn btn-primary btn-lg" id="pasarTab3-Tab4"> Siguiente </a>
                             </div>
                         </div>
                     </div>
                 </article>
 
                 <article id="tab4">
-                    <div class="row">
                         <div class="form-group">
+                            
+                            <div id="center">
+                                <h3>Formulario de envío</h3>
 
-                            <div class="center">
                                 @Html.LabelFor(model => model.NombreDuenioPizza)
                                 @Html.TextBoxFor(model => model.NombreDuenioPizza, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.NombreDuenioPizza, "", new { @class = "text-danger" })
@@ -138,6 +142,12 @@
 
                                 <hr />
 
+                                @Html.LabelFor(model => model.CiudadEntrega)
+                                @Html.TextBoxFor(model => model.CiudadEntrega, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CiudadEntrega, "", new { @class = "text-danger" })
+
+                                <hr />
+
                                 @Html.LabelFor(model => model.DireccionEntrega)
                                 @Html.TextBoxFor(model => model.DireccionEntrega, new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.DireccionEntrega, "", new { @class = "text-danger" })
@@ -146,7 +156,6 @@
                                 <input type="submit" value="Confirmar mi pedido" class="btn btn-success" />
                             </div>
                         </div>
-                    </div>
                 </article>
             }
         </div>

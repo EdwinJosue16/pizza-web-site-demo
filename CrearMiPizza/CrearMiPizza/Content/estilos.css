@@ -11,6 +11,13 @@ body {
     /*background-image: url(img/pizzaback.png);*/
 }
 
+#center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
 .wrap {
     width: 1400px;
     max-width: 100%;
@@ -25,7 +32,7 @@ ul.tabs {
 }
 
     ul.tabs li {
-        width: 18%;
+        width: 20%;
     }
 
         ul.tabs li a {
@@ -80,3 +87,4 @@ ul.tabs li a .tab-text {
         padding: 20px;
     }
 }
+

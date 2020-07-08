@@ -13,6 +13,11 @@ namespace CrearMiPizza.Models
         public string TipoSalsa { get; set; }
         public string TipoMasa { get; set; }
 
+
+        [Required(ErrorMessage = "Es necesario que indique la ciudad de entrega")]
+        [Display(Name = "Ingrese la ciudad de entrega")]
+        public string CiudadEntrega { get; set; }
+
         [Required (ErrorMessage ="Es necesario que indique la dirección de entrega")]
         [Display(Name = "Ingrese la dirección de entrega")]
         public string DireccionEntrega { get; set; }
