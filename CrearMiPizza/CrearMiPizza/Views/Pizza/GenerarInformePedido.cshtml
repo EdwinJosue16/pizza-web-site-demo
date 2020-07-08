@@ -29,60 +29,6 @@
             <hr />
         </div>
 
-        <div class="text-center">
-            <h1>Detalles de la pizza</h1>
-            <hr />
-        </div>
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col"> - </th>
-                    <th scope="col">Tamaño de la pizza </th>
-                    <th scope="col">Aumento de precio </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"> * </th>
-                    <td>@detallesIngresientes.Tamanios[pizzaCreada.Tamanio]  </td>
-                    <td>x @detallesIngresientes.IncrementoPrecioXTamanio[pizzaCreada.Tamanio] </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col">- </th>
-                    <th scope="col">Tipo de salsa </th>
-                    <th scope="col">Precio </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"> * </th>
-                    <td>@detallesIngresientes.NombresSalsas[pizzaCreada.TipoSalsa]  </td>
-                    <td>$ @detallesIngresientes.PrecioSalsas[pizzaCreada.TipoSalsa] </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col">- </th>
-                    <th scope="col">Tipo de masa  </th>
-                    <th scope="col">Precio </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"> * </th>
-                    <td>@detallesIngresientes.NombresMasas[pizzaCreada.TipoMasa]  </td>
-                    <td>$ @detallesIngresientes.PrecioMasas[pizzaCreada.TipoMasa] </td>
-                </tr>
-            </tbody>
-        </table>
         <hr />
         <div class="text-center">
             <h1>Ingredientes de la pizza</h1>
@@ -117,6 +63,49 @@
                 <h7>Usted no seleccionó ingredientes</h7>
             </div>
         }
+        <hr />
+        <div class="text-center">
+            <h1>Detalles de la pizza</h1>
+            <hr />
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> - </th>
+                    <th scope="col">Característica </th>
+                    <th scope="col">Precio </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <th scope="row"> * </th>
+                    <td>Masa: @detallesIngresientes.NombresMasas[pizzaCreada.TipoMasa]  </td>
+                    <td>$ @detallesIngresientes.PrecioMasas[pizzaCreada.TipoMasa] </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"> * </th>
+                    <td>Salsa: @detallesIngresientes.NombresSalsas[pizzaCreada.TipoSalsa]  </td>
+                    <td>$ @detallesIngresientes.PrecioSalsas[pizzaCreada.TipoSalsa] </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"> * </th>
+                    <td>Tamaño: @detallesIngresientes.Tamanios[pizzaCreada.Tamanio]  </td>
+                    <td>Total x @detallesIngresientes.IncrementoPrecioXTamanio[pizzaCreada.Tamanio] </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <hr />
+            <h1>Precio de la pizza</h1>
+            <hr />
+            <div class="text-center text-danger"><h4><strong> $ @(((ViewBag.precioFinalPizza/ detallesIngresientes.IncrementoPrecioXTamanio[pizzaCreada.Tamanio]))/1.13) </strong></h4></div>
+            <div class="text-center text-danger"> No incluye iva 13% ni aumento por tamaño </div>
+        </div>
+
         <div class="text-center">
             <hr />
             <h1>Monto total por cancelar</h1>
