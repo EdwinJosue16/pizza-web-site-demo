@@ -26,6 +26,8 @@ namespace CrearMiPizza.Models
         [Display(Name ="Ingrese su nombre completo")]
         public string NombreDuenioPizza { get; set;}
 
+        [StringLength(8, MinimumLength = 8,ErrorMessage ="El número de teléfono debe tener 8 digitos")]
+        [RegularExpression("^[0-9]*$",ErrorMessage = "El formato de ingreso es Ej: 22334455")]
         [Required(ErrorMessage = "Es necesario que indique su número de teléfono")]
         [Display(Name = "Ingrese su número de teléfono")]
         public string TelefonoEntrega {get; set;}
