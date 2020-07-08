@@ -11,11 +11,23 @@ namespace CrearMiPizza.Controllers
     {
         public ActionResult CrearPizza()
         {
+            ViewBag.Message = "";
+            if (TempData["Message"]!=null) {
+                ViewBag.Message = TempData["Message"].ToString();
+            }
             return View();
         }
         [HttpPost]
         public ActionResult EnviaDatosCreacion(PizzaModel pizza) {
-            return View();
+            if (pizza != null && ModelState.IsValid)
+            {
+                return View(pizza);
+            }
+            else {
+                @TempData["Message"] = "Algo salió mal vuelva a efectuar su pedido";
+                return RedirectToAction("CrearPizza");
+            }
+            
         }
     }
 }

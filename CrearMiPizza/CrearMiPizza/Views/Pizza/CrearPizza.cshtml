@@ -24,6 +24,12 @@
     <h2> <strong> Elija los elementos favoritos para su pizza</strong></h2>
     <hr />
 
+    @if (ViewBag.Message != "") {
+        <div class="alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+
     <div class="wrap">
         <ul class="tabs">
             <li><a href="#tab1"><span class="fas fa-ruler"></span><span class="tab-text"> Tamaño </span></a></li>
@@ -45,9 +51,9 @@
                             <hr />
 
                             <div class="form-group">
-                                @Html.RadioButtonFor(model => model.Tamanios, "Personal (4 slides)", new { @checked = "true" }) <spam class="tamanios-letras-rb">Personal (4 slides) </spam> <hr />
-                                @Html.RadioButtonFor(model => model.Tamanios, "Mediana (8 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
-                                @Html.RadioButtonFor(model => model.Tamanios, "Grande (16 slides)", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
+                                @Html.RadioButtonFor(model => model.Tamanio, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb">Personal (4 slides) </spam> <hr />
+                                @Html.RadioButtonFor(model => model.Tamanio, "2", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
+                                @Html.RadioButtonFor(model => model.Tamanio, "3", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
 
                                 <a href="#tab2" class="btn btn-primary btn-lg" id="pasarTab1-Tab2"> Siguiente </a>
                             </div>
@@ -65,16 +71,16 @@
                         <div class="col-md-4">
                             <h4>Seleccione la masa de su preferencia</h4>
                             <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "Original", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Original </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "Orilla con queso", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Orilla con queso </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "Sartén", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Sartén </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Original </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "2", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Orilla con queso </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoMasa, "3", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Sartén </spam> <hr />
                         </div>
                         <div class="col-md-4">
                             <h4>Seleccione la salsa de su preferencia</h4>
                             <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa de la casa", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa de la casa </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa tomate artesanal", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa tomate artesanal </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "Salsa barbacoa", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa barbacoa </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa de la casa </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "2", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa tomate artesanal </spam> <hr />
+                            @Html.RadioButtonFor(model => model.TipoSalsa, "3", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa barbacoa </spam> <hr />
                         </div>
                         <div class="col-md-4">
                             <hr />
