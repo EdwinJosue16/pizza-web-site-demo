@@ -1,7 +1,9 @@
 ﻿@model CrearMiPizza.Models.PizzaModel
 
+
 @{
     ViewBag.Title = "Crear mi pizza";
+    var detallesIngresientes = ViewBag.detallesIngredientes;
 }
 
 
@@ -51,9 +53,11 @@
                             <hr />
 
                             <div class="form-group">
-                                @Html.RadioButtonFor(model => model.Tamanio, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb">Personal (4 slides) </spam> <hr />
-                                @Html.RadioButtonFor(model => model.Tamanio, "2", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Mediana (8 slides) </spam> <hr />
-                                @Html.RadioButtonFor(model => model.Tamanio, "3", new { @checked = "false" }) <spam class="tamanios-letras-rb"> Grande (16 slides) </spam> <hr />
+                                @for (int i = 0; i < detallesIngresientes.Tamanios.Length; ++i)
+                                {
+                                    string valorIndice = i.ToString();
+                                    @Html.RadioButtonFor(model => model.Tamanio, valorIndice, new { @checked = "true" }) <spam class="tamanios-letras-rb"> @detallesIngresientes.Tamanios[i] </spam> <hr />
+                                }
 
                                 <a href="#tab2" class="btn btn-primary btn-lg" id="pasarTab1-Tab2"> Siguiente </a>
                             </div>
@@ -71,16 +75,20 @@
                         <div class="col-md-4">
                             <h4>Seleccione la masa de su preferencia</h4>
                             <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Original </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "2", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Orilla con queso </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoMasa, "3", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Sartén </spam> <hr />
+                            @for (int i = 0; i < detallesIngresientes.NombresMasas.Length; ++i)
+                            {
+                                string valorIndice = i.ToString();
+                                @Html.RadioButtonFor(model => model.TipoMasa, valorIndice, new { @checked = "true" }) <spam class="tamanios-letras-rb"> @detallesIngresientes.NombresMasas[i] </spam> <hr />
+                            }
                         </div>
                         <div class="col-md-4">
                             <h4>Seleccione la salsa de su preferencia</h4>
                             <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "1", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa de la casa </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "2", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa tomate artesanal </spam> <hr />
-                            @Html.RadioButtonFor(model => model.TipoSalsa, "3", new { @checked = "true" }) <spam class="tamanios-letras-rb"> Salsa barbacoa </spam> <hr />
+                            @for (int i = 0; i < detallesIngresientes.NombresSalsas.Length; ++i)
+                            {
+                                string valorIndice = i.ToString();
+                                @Html.RadioButtonFor(model => model.TipoSalsa, valorIndice, new { @checked = "true" }) <spam class="tamanios-letras-rb"> @detallesIngresientes.NombresSalsas[i] </spam> <hr />
+                            }
                         </div>
                         <div class="col-md-4">
                             <hr />
@@ -101,28 +109,36 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <img src="~/Content/img/ingresientes1.jpg" width="330" height="200" /> <hr />
-                                <input name="IngredientesId" type="checkbox" value="1" /> Jamón <br />
-                                <input name="IngredientesId" type="checkbox" value="2" /> Hongos <br />
-                                <input name="IngredientesId" type="checkbox" value="4" /> Salami <br />
-                                <input name="IngredientesId" type="checkbox" value="3" /> Peperoni <br />
+                                @for (int i = 0; i < 4; ++i)
+                                {
+                                    string valorIndice = i.ToString();
+                                    <input name="IngredientesId" type="checkbox" value=@valorIndice /> @detallesIngresientes.NombresIngredientes[i]; 
+                                    <br />
+                                }
+
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <img src="~/Content/img/ingresientes2.jpg" width="330" height="200" /> <hr />
-                                <input name="IngredientesId" type="checkbox" value="5" /> Pollo <br />
-                                <input name="IngredientesId" type="checkbox" value="6" /> Carne molida <br />
-                                <input name="IngredientesId" type="checkbox" value="7" /> Chorizo <br />
-                                <input name="IngredientesId" type="checkbox" value="8" /> Tosino <br />
+                                @for (int i = 4; i < 8; ++i)
+                                {
+                                    string valorIndice = i.ToString();
+                                    <input name="IngredientesId" type="checkbox" value=@valorIndice /> @detallesIngresientes.NombresIngredientes[i];
+                                    <br />
+                                }
+
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <img src="~/Content/img/ingresientes3.jpg" width="330" height="200" /> <hr />
-                                <input name="IngredientesId" type="checkbox" value="9" /> Queso parmesano <br />
-                                <input name="IngredientesId" type="checkbox" value="10" /> Queso cheddar <br />
-                                <input name="IngredientesId" type="checkbox" value="11" /> Cebolla <br />
-                                <input name="IngredientesId" type="checkbox" value="12" /> Jalapeños
+                                @for (int i = 8; i < 12; ++i)
+                                {
+                                    string valorIndice = i.ToString();
+                                    <input name="IngredientesId" type="checkbox" value=@valorIndice /> @detallesIngresientes.NombresIngredientes[i];
+                                    <br />
+                                }
                                 <hr />
                                 <a href="#tab4" class="btn btn-primary btn-lg" id="pasarTab3-Tab4"> Siguiente </a>
                             </div>

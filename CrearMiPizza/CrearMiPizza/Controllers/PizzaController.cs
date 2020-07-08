@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using CrearMiPizza.Models;
 
 namespace CrearMiPizza.Controllers
@@ -11,6 +7,7 @@ namespace CrearMiPizza.Controllers
     {
         public ActionResult CrearPizza()
         {
+            ViewBag.detallesIngredientes = new DetallesIngredientesModel();
             ViewBag.Message = "";
             if (TempData["Message"]!=null) {
                 ViewBag.Message = TempData["Message"].ToString();
