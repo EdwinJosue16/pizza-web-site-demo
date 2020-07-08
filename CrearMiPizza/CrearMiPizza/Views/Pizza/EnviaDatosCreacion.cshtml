@@ -1,1 +1,165 @@
-﻿<p>Factura</p>
+﻿
+@{
+    ViewBag.Title = "Detalles de mi pizza";
+    var pizzaCreada = Model;
+    var detallesIngresientes = ViewBag.detallesIngredientes;
+}
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/estilos.css" />
+   
+</head>
+
+<body class="body-content" id="body-inicio">
+    <hr />
+    <div class="jumbotron" id="center">
+        <div class="text-center">
+            <h1>Detalles de la entrega</h1>
+            <hr />
+            <h7> <strong>Nombre del cliente:</strong> @pizzaCreada.NombreDuenioPizza  </h7> <br />
+            <h7> <strong>Teléfono del cliente: </strong> @pizzaCreada.TelefonoEntrega  </h7> <br />
+            <h7> <strong> Ciudad de entrega:</strong> @pizzaCreada.CiudadEntrega  </h7> <br />
+            <h7> <strong> Dirección de entrega:</strong> </h7> <br />
+            <p>
+                @pizzaCreada.DireccionEntrega
+            </p>
+            <hr />
+        </div>
+
+        <div class="text-center">
+            <h1>Detalles de la pizza</h1>
+            <hr />
+        </div>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col"> - </th>
+                    <th scope="col"> Tamaño de la pizza </th>
+                    <th scope="col"> Aumento de precio </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"> * </th>
+                    <td> @detallesIngresientes.Tamanios[pizzaCreada.Tamanio]  </td>
+                    <td> x @detallesIngresientes.IncrementoPrecioXTamanio[pizzaCreada.Tamanio] </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">- </th>
+                    <th scope="col">Tipo de salsa </th>
+                    <th scope="col">Precio (colones) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"> * </th>
+                    <td> @detallesIngresientes.NombresSalsas[pizzaCreada.Tamanio]  </td>
+                    <td> @detallesIngresientes.PrecioSalsas[pizzaCreada.Tamanio] </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">- </th>
+                    <th scope="col">Tipo de masa  </th>
+                    <th scope="col">Precio (colones) </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"> * </th>
+                    <td> @detallesIngresientes.NombresMasas[pizzaCreada.Tamanio]  </td>
+                    <td> @detallesIngresientes.PrecioMasas[pizzaCreada.Tamanio] </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr />
+        <div class="text-center">
+            <h1>Ingredientes de la pizza</h1>
+            <hr />
+        </div>
+
+        @if (pizzaCreada.IngredientesId != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ingrediente</th>
+                        <th scope="col">Precio (colones)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var number in pizzaCreada.IngredientesId)
+                    {
+                        <tr>
+                            <th scope="row"> @(number + 1)</th>
+                            <td>@detallesIngresientes.NombresIngredientes[number]</td>
+                            <td>@detallesIngresientes.PreciosIngredientes[number]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center">
+                <h7>Usted no seleccionó ingredientes</h7>
+            </div>
+        }
+        <div class="text-center">
+            <hr />
+            <h1>Monto total por cancelar</h1>
+            <hr />
+            <div class="text-center text-danger"><h4><strong>99999</strong></h4></div>
+        </div>
+
+        <div class="text-center">
+            <hr />
+            <a class="btn btn-success" id="termina-pedido"> <spam class="txt-btn"> Terminar mi pedido </spam> </a>
+            <a class="btn btn-danger" id="cancelar-pedido">  <spam class="txt-btn"> Cancelar mi pedido </spam> </a>
+        </div>
+
+    </div>
+
+    <div>
+
+        <div id="vtn-modal-irInicio" class="modal">
+            <!-- Contenido -->
+            <div class="modal-content">
+                <div class="text-center">
+                    <h4 class="alert-success"> Su orden está en camino, gracias por preferirnos </h4>
+                    <a class="btn btn-success" href="/Home/Index"> <spam class="txt-btn"> Aceptar </spam> </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="vtn-modal-anularPedido" class="modal">
+            <!-- Contenido -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="text-center">
+                    <h4 class="alert-danger"> ¿Está seguro que quiere cancelar su pedido? </h4>
+                    <a class="btn btn-success" href="/Home/Index"> <spam class="txt-btn"> Sí </spam> </a>
+                    <a class="btn btn-danger" id="btn-no"> <spam class="txt-btn"> No </spam> </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="~/Scripts/ventana.js"></script>
+</body>
+
+</html>
