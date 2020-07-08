@@ -282,7 +282,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Pizza\CrearPizza.cshtml" />
-    <Content Include="Views\Pizza\EnviaDatosCreacion.cshtml" />
+    <Content Include="Views\Pizza\GenerarInformePedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

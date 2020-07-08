@@ -15,7 +15,7 @@ namespace CrearMiPizza.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult EnviaDatosCreacion(PizzaModel pizza) {
+        public ActionResult GenerarInformePedido(PizzaModel pizza) {
             if (pizza != null && ModelState.IsValid)
             {
                 ViewBag.detallesIngredientes = new DetallesIngredientesModel();
