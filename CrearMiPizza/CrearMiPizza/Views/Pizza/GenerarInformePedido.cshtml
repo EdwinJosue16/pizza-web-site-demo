@@ -55,14 +55,14 @@
                 <tr>
                     <th scope="col">- </th>
                     <th scope="col">Tipo de salsa </th>
-                    <th scope="col">Precio (colones) </th>
+                    <th scope="col">Precio </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row"> * </th>
-                    <td>@detallesIngresientes.NombresSalsas[pizzaCreada.Tamanio]  </td>
-                    <td>@detallesIngresientes.PrecioSalsas[pizzaCreada.Tamanio] </td>
+                    <td>@detallesIngresientes.NombresSalsas[pizzaCreada.TipoSalsa]  </td>
+                    <td>$ @detallesIngresientes.PrecioSalsas[pizzaCreada.TipoSalsa] </td>
                 </tr>
             </tbody>
         </table>
@@ -72,14 +72,14 @@
                 <tr>
                     <th scope="col">- </th>
                     <th scope="col">Tipo de masa  </th>
-                    <th scope="col">Precio (colones) </th>
+                    <th scope="col">Precio </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row"> * </th>
-                    <td>@detallesIngresientes.NombresMasas[pizzaCreada.Tamanio]  </td>
-                    <td>@detallesIngresientes.PrecioMasas[pizzaCreada.Tamanio] </td>
+                    <td>@detallesIngresientes.NombresMasas[pizzaCreada.TipoMasa]  </td>
+                    <td>$ @detallesIngresientes.PrecioMasas[pizzaCreada.TipoMasa] </td>
                 </tr>
             </tbody>
         </table>
@@ -96,7 +96,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Ingrediente</th>
-                        <th scope="col">Precio (colones)</th>
+                        <th scope="col">Precio </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,7 +105,7 @@
                         <tr>
                             <th scope="row"> @(number + 1)</th>
                             <td>@detallesIngresientes.NombresIngredientes[number]</td>
-                            <td>@detallesIngresientes.PreciosIngredientes[number]</td>
+                            <td>$ @detallesIngresientes.PreciosIngredientes[number]</td>
                         </tr>
                     }
                 </tbody>
@@ -121,7 +121,8 @@
             <hr />
             <h1>Monto total por cancelar</h1>
             <hr />
-            <div class="text-center text-danger"><h4><strong> @ViewBag.precioFinalPizza </strong></h4></div>
+            <div class="text-center text-danger"><h4><strong> $ @ViewBag.precioFinalPizza </strong></h4></div>
+            <div class="text-center text-danger"> (iva 13% incluido) </div>
         </div>
 
         <div class="text-center">
