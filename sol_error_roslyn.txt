@@ -1,0 +1,16 @@
+desde la consola del package manager ejecutar: Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
+
+
+Esto es para reinstalar/actualizar los paquetes de Nuget
+
+Luego se puede verificar en el csproj las rutas sean las correctas, Dentro de las etiquetas <ImportProject> en la parte superior y en <Target> con el nombre "InsuranceNuGetPackageBuildImports" en la parte inferior. Esto está en MVC 5 y .NET Framework 4.5.2.
+
+<Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+</Target>
+
+fuente: https://www.it-swarm.dev/es/c%23/no-se-pudo-encontrar-una-parte-de-la-ruta-...-binroslyncsc.exe/1055453715/
